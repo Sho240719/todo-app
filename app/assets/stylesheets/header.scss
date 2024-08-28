@@ -5,7 +5,6 @@ $avatar-size: 40px;
 .header {
   display: flex;
   justify-content: space-between;
-//   background-color: $primary-color;
   padding: 10px 16px;
   font-weight: bold;
   border-bottom: 2px solid $line-base-color ;
@@ -13,12 +12,12 @@ $avatar-size: 40px;
   &-pagetitle {
     color: $text-base-color;
     line-height: $avatar-size;
-    font-size: $font-lg;
+    font-size: 20px;
+    font-weight: normal;
   }
 
   &-avatar {
     width: $avatar-size;
-    // height: $avatar-size;
     border-radius: 100%;
   }
 }
