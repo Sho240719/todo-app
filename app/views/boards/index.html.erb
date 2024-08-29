@@ -1,10 +1,19 @@
-<h2>All Boards</h2>
-
-<div>
+<div class="container">
+  <h2>All Boards</h2>
   <% @boards.each do |board| %>
-    <div class="all-boards">
-      <p><%= @boards.title %></p>
-      <p><%= @boards.content %></p>    
+    <div class="task-board">
+      <div class="task">
+        <h3>Task</h3>
+        <p><%= board.title %></p>
+      </div>
+      <div class="content">
+        <h3>Content</h3>
+        <p><%= board.content %></p>
+      </div>
+      <%= image_tag "default-avatar.png", class: "header-avatar" %>
     </div>
   <% end %>
+  <div class="add-task-board">
+    <%= link_to "+ Add new board", "#", class: "add-task-button" %>
+  </div>
 </div>
