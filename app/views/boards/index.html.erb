@@ -1,0 +1,10 @@
+<h2>All Boards</h2>
+
+<div>
+  <% @boards.each do |board| %>
+    <div class="all-boards">
+      <p><%= @boards.title %></p>
+      <p><%= @boards.content %></p>    
+    </div>
+  <% end %>
+</div>
