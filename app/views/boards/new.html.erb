@@ -1,0 +1,18 @@
+<div class="container">
+  <h2>New Board</h2>
+  <%= form_with(model: @board, local: true) do |f| %>
+    <div class="new-task">
+      <%= f.label :name, "Name" %>
+    </div>
+    <div>
+      <%= f.text_field :name, class: "task-name" %>
+    </div>
+    <div class="new-task">
+      <%= f.label :description, "Description" %>
+    </div>
+    <div>
+      <%= f.text_area :description, class: "task-description" %>
+    </div>
+    <%= f.submit "Submit", class: "btn-primary" %>
+  <% end %>
+</div>
