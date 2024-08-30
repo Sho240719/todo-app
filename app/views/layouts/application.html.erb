@@ -12,7 +12,7 @@
 
   <body>
     <header class="header">
-      <p class="header-pagetitle">Boards</p>
+      <%= link_to "Boards", boards_path, class: "header-pagetitle" %>
       <div class="dropdown">
         <%= image_tag "default-avatar.png", class: "header-avatar dropbtn" %>
         <div class="dropdown-content">
