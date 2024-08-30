@@ -1,4 +1,9 @@
 <div class="container">
+  <ul>
+    <% @board.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
   <h2>New Board</h2>
   <%= form_with(model: @board, local: true) do |f| %>
     <div class="new-task">
