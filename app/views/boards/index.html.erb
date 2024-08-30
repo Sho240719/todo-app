@@ -10,7 +10,19 @@
         <h3>Content</h3>
         <p><%= board.content %></p>
       </div>
-      <%= image_tag "default-avatar.png", class: "header-avatar" %>
+      <div class="board-items">
+        <div class="board-info">
+          <%= image_tag "default-avatar.png", class: "header-avatar" %>
+          <p><%= board.user.email.split("@").first %></p>
+        </div>
+        <div class="board-edit dropdown">
+          <%= image_tag "edit-icon.png", class: "edit-icon" %>
+          <div class="dropdown-content">
+            <p><%= link_to "編集", "#"%></p>
+            <p><%= link_to "削除", "#"%></p>
+          </div>
+        </div>
+      </div>
     </div>
   <% end %>
   <div class="add-task-board">
