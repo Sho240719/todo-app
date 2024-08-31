@@ -20,7 +20,7 @@
             <%= image_tag "edit-icon.png", class: "edit-icon" %>
             <div class="dropdown-content">
               <p><%= link_to "編集", edit_board_path(board) %></p>
-              <p><%= link_to "削除", "#" %></p>
+              <p><%= link_to "削除", board_path(board), data: { method: "delete", confirm: "本当に削除してもよろしいですか？" } %></p>
             </div>
           </div>
         <% end %>
