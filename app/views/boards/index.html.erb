@@ -15,13 +15,15 @@
           <%= image_tag "default-avatar.png", class: "header-avatar" %>
           <p><%= board.user.email.split("@").first %></p>
         </div>
-        <div class="board-edit dropdown">
-          <%= image_tag "edit-icon.png", class: "edit-icon" %>
-          <div class="dropdown-content">
-            <p><%= link_to "編集", "#"%></p>
-            <p><%= link_to "削除", "#"%></p>
+        <% if user_signed_in? && current_user.has_written?(board) %>
+          <div class="board-edit dropdown">
+            <%= image_tag "edit-icon.png", class: "edit-icon" %>
+            <div class="dropdown-content">
+              <p><%= link_to "編集", edit_board_path(board) %></p>
+              <p><%= link_to "削除", "#" %></p>
+            </div>
           </div>
-        </div>
+        <% end %>
       </div>
     </div>
   <% end %>
