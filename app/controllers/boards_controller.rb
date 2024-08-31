@@ -23,6 +23,16 @@ class BoardsController < ApplicationController
     @board = current_user.boards.find(params[:id])
   end
 
+  def update
+    @board = current_user.boards.find(params[:id])
+    if @board.update(board_params)
+      redirect_to root_path, notice: "更新しました"
+    else
+      flash.now[:error] = "更新できませんでした"
+      render :edit
+    end
+  end
+
   private
   def board_params
     params.require(:board).permit(:title, :content)
