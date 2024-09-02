@@ -11,11 +11,14 @@
   %body
     %header.header
       = link_to "Boards", boards_path, class: "header-pagetitle"
-      .dropdown
-        = image_tag "default-avatar.png", class: "header-avatar dropbtn"
-        .dropdown-content
-          %a{:href => "#"} プロフィール
-          %a{:href => "#"} ログアウト
+      - if user_signed_in?
+        .dropdown
+          = image_tag "default-avatar.png", class: "header-avatar dropbtn"
+          .dropdown-content
+            %a{:href => "#"} プロフィール
+            = link_to "ログアウト", destroy_user_session_path, data: { method: "delete" }
+      - else
+        = link_to "ログイン", new_user_session_path, class: "login-btn"
     %p.notice= notice
     %p.alert= alert
     = yield
