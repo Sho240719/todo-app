@@ -3,14 +3,13 @@
   - @boards.each do |board|
     .task-board
       .task
-        %h3 Task
-        %p= board.title
+        %h3= board.title
       .content
-        %h3 Content
         %p= board.content
       .board-items
         .board-info
           = image_tag "default-avatar.png", class: "header-avatar"
+          %p 作成者:
           %p= board.user.email.split("@").first
         - if user_signed_in? && current_user.has_written?(board)
           .board-edit.dropdown
