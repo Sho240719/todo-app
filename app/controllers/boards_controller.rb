@@ -12,9 +12,9 @@ class BoardsController < ApplicationController
   def create
     @board = current_user.boards.build(board_params)
     if @board.save
-      redirect_to root_path, notice: "Taskを追加しました"
+      redirect_to root_path, notice: 'Taskを追加しました'
     else
-      flash.now[:error] = "Taskを追加できませんでした"
+      flash.now[:error] = 'Taskを追加できませんでした'
       render :new
     end
   end
@@ -26,9 +26,9 @@ class BoardsController < ApplicationController
   def update
     @board = current_user.boards.find(params[:id])
     if @board.update(board_params)
-      redirect_to root_path, notice: "更新しました"
+      redirect_to root_path, notice: '更新しました'
     else
-      flash.now[:error] = "更新できませんでした"
+      flash.now[:error] = '更新できませんでした'
       render :edit
     end
   end
@@ -36,7 +36,7 @@ class BoardsController < ApplicationController
   def destroy
     board = current_user.boards.find(params[:id])
     board.destroy!
-    redirect_to root_path, notice: "削除しました"
+    redirect_to root_path, notice: '削除しました'
   end
 
   private
