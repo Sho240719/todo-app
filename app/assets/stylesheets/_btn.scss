@@ -1,0 +1,33 @@
+@import 'variables';
+
+// ログインボタン
+.login-btn {
+  color: $text-base-color;
+  background-color: $primary-color;
+  border-radius: 5px;
+  padding: 10px 10px;
+}
+
+// ログイン画面の送信ボタン
+.submit {
+  color: white;
+  background-color: $primary-color;
+  border: none;
+  border-radius: 5px;
+  width: 100%;
+  padding: 15px 0;
+  margin-top: 400px;
+  font-size: 15px;
+}
+
+// その他送信ボタン
+.btn-primary {
+  color: white;
+  background-color: $primary-color;
+  border: none;
+  border-radius: 5px;
+  width: 100%;
+  padding: 15px 0;
+  margin-top: 250px;
+  font-size: 15px;
+}

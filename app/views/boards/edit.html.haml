@@ -1,15 +1,2 @@
-.container
-  %ul
-    - @board.errors.full_messages.each do |message|
-      %li= message
-  %h2 Edit Board
-  = form_with(model: @board, local: true) do |f|
-    .new-task
-      = f.label :title, "Title"
-    %div
-      = f.text_field :title, class: "task-title"
-    .new-task
-      = f.label :content, "Description"
-    %div
-      = f.text_area :content, class: "task-description"
-    = f.submit "Submit", class: "btn-primary"
+%h2.headline Edit Board
+= render 'form', board: @board

@@ -1,0 +1,25 @@
+@import 'variables';
+
+.field {
+    margin-top: 30px;
+    color: $text-base-color;
+
+    &-input {
+      background-color: $line-base-color;
+      border: none;
+      border-radius: 5px;
+      width: 100%;
+      padding: 15px 0;
+      margin-top: 5px;
+    }
+  }
+
+.sign-up {
+  position: absolute;
+  top: 330px;
+  left: 15px;
+  color: white;
+  background-color: $primary-color;
+  padding: 5px 10px;
+  border-radius: 5px;
+}

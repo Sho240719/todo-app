@@ -1,0 +1,19 @@
+@import 'variables';
+
+.form-headline {
+    margin-top: 25px;
+    margin-bottom: 5px;
+  }
+
+  .form-title,
+  .form-content {
+    background-color: $line-base-color;
+    border: none;
+    padding: 10px 5px;
+    border-radius: 5px;
+    width: 100%;
+  }
+
+  .form-content {
+    height: 200px;
+  }
