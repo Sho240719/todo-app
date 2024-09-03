@@ -1,7 +1,11 @@
-@import 'header';
-@import 'comments';
 @import 'variables';
-@import 'card';
+@import 'btn';
+@import 'dropdown';
+@import 'form';
+@import 'header';
+@import 'devise';
+@import 'board';
+@import 'flash';
 
 html {
   word-spacing: 1px;
@@ -27,35 +31,15 @@ body {
 }
 
 .container {
-  padding: 16px 16px;
+  padding: 0 15px 30px 15px;
   width: 100%;
 }
 
-h2 {
+.headline {
   color: rgb(31, 30, 30);
+  padding: 12px 17px 0px 17px;
 }
 
-.field {
-  margin-top: 30px;
-  color: $text-base-color;
-
-  &-input {
-    background-color: $line-base-color;
-    border: none;
-    border-radius: 5px;
-    width: 100%;
-    padding: 15px 0;
-    margin-top: 5px;
-  }
-}
-
-.submit {
-  color: white;
-  background-color: $primary-color;
-  border: none;
-  border-radius: 5px;
-  width: 100%;
-  padding: 15px 0;
-  margin-top: 400px;
-  font-size: 15px;
+a {
+  text-decoration: none;
 }

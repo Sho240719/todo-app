@@ -1,0 +1,22 @@
+.container
+  %h2 Sign in
+  = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+    .field
+      = f.label :email
+      %br/
+      = f.email_field :email, autofocus: true, autocomplete: "email", class: "field-input"
+    .field
+      = f.label :password
+      %br/
+      = f.password_field :password, autocomplete: "current-password", class: "field-input"
+    /
+      <haml_silent> if devise_mapping.rememberable? </haml_silent><haml_block>
+      <div class="field">
+      <haml_loud> f.check_box :remember_me </haml_loud>
+      <haml_loud> f.label :remember_me </haml_loud>
+      </div>
+      </haml_block>
+    .actions
+      = f.submit "submit", class: "submit"
+  / <haml_loud> render &quot;devise/shared/links&quot; </haml_loud>
+= link_to "新規登録", new_user_registration_path, class: "sign-up"

@@ -1,0 +1,39 @@
+@import 'variables';
+
+.board {
+  background-color: #b1acac24;
+  padding: 15px 20px;
+  border-radius: 10px;
+  margin-top: 30px;
+  border: 1px solid $line-base-color;
+}
+
+.board-title, .board-content {
+  margin-bottom: 20px;
+}
+
+.board-items {
+  display: flex;
+  justify-content: space-between;
+}
+
+.board-info {
+  display: flex;
+
+  p {
+    margin-top: 5px;
+    margin-left: 10px;
+  }
+}
+
+.add-new-board {
+  margin-top: 30px;
+  padding: 30px 20px;
+  border: 1px solid $line-base-color;
+  text-decoration: none;
+  text-align: center;
+
+  .add-new-board-btn {
+    color: $text-base-color;
+  }
+}
