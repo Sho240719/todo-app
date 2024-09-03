@@ -12,9 +12,9 @@ class BoardsController < ApplicationController
   def create
     @board = current_user.boards.build(board_params)
     if @board.save
-      redirect_to root_path, notice: 'Taskを追加しました'
+      redirect_to root_path, notice: 'Boardを追加しました'
     else
-      flash.now[:error] = 'Taskを追加できませんでした'
+      flash.now[:error] = 'Boardを追加できませんでした'
       render :new
     end
   end

@@ -1,7 +1,8 @@
 .container
-  %ul
-    - board.errors.full_messages.each do |message|
-      %li= message
+  - if flash.present?
+    %ul.flash
+      - board.errors.full_messages.each do |message|
+        %li= message
   = form_with(model: board, local: true) do |f|
     .form-headline
       = f.label :title, "Title"
