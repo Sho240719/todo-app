@@ -1,0 +1,19 @@
+@import 'variables';
+
+.show-board {
+  background-color: #b1b1ac24;
+  padding: 15px 20px;
+  border: 1px solid $line-base-color;
+}
+
+.add-new-task {
+  margin: 30px 15px;
+  padding: 30px 20px;
+  border: 1px solid $line-base-color;
+  text-decoration: none;
+  text-align: center;
+
+  .add-new-task-btn {
+    color: $text-base-color;
+  }
+}

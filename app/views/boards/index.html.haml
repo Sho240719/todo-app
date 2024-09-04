@@ -1,21 +1,22 @@
 %h2.headline All Boards
 .container
   - @boards.each do |board|
-    .board
-      .board-title
-        %h3= board.title
-      .board-content
-        %p= board.content
-      .board-items
-        .board-info
-          = image_tag "default-avatar.png", class: "header-avatar"
-          %p 作成者:
-          %p= board.user.email.split("@").first
-        - if user_signed_in? && current_user.has_written?(board)
-          .dropdown
-            = image_tag "edit-icon.png", class: "edit-icon"
-            .dropdown-content
-              %p= link_to "編集", edit_board_path(board)
-              %p= link_to "削除", board_path(board), data: { method: "delete", confirm: "本当に削除してもよろしいですか？" }
+    = link_to board_path(id: board.id) do
+      .board
+        .board-title
+          %h3= board.title
+        .board-content
+          %p= board.content
+        .board-items
+          .board-info
+            = image_tag "default-avatar.png", class: "header-avatar"
+            %p 作成者:
+            %p= board.user.email.split("@").first
+          -# - if user_signed_in? && current_user.has_written?(board)
+          -#   .dropdown
+          -#     = image_tag "edit-icon.png", class: "edit-icon"
+          -#     .dropdown-content
+          -#       %p= link_to "編集", edit_board_path(board)
+          -#       %p= link_to "削除", board_path(board), data: { method: "delete", confirm: "本当に削除してもよろしいですか？" }
   .add-new-board
     = link_to "+ Add new board", new_board_path, class: "add-new-board-btn"
