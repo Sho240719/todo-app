@@ -1,37 +1,45 @@
 @import 'variables';
 
 .dropdown {
-    position: relative;
-    display: inline-block;
+  position: relative;
+  display: inline-block;
+}
 
-    .edit-icon {
-      width: 20px;
-      margin-top: 10px;
-    }
-  }
+.edit-icon {
+  width: 20px;
+  position: relative;
+  bottom: 40px;
+  left: 300px;
+}
 
 .dropdown-content {
-    font-weight: normal;
-    display: none;
-    right: 0;
-    position: absolute;
-    background-color: white;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-  }
+  font-weight: normal;
+  display: none;
+  right: 0;
+  position: absolute;
+  background-color: white;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 2;
+}
 
-  .dropdown-content a {
-    padding: 8px 16px;
-    text-decoration: none;
-    display: block;
-    color: $text-base-color;
-  }
+.dropdown-content a {
+  padding: 8px 16px;
+  text-decoration: none;
+  display: block;
+  color: $text-base-color;
+}
 
-  .dropdown-content a:hover {
-    background-color: white;
-  }
+.dropdown-content a:hover {
+  background-color: white;
+}
 
-  .dropdown:hover .dropdown-content {
-    display: block;
-  }
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-edit {
+  position: absolute;
+  top: -15px;
+  left: 170px;
+}

@@ -1,0 +1,13 @@
+%div.show-board
+  %h2.headline= @board.title
+  .container
+    - if user_signed_in? && current_user.has_written?(@board)
+      .dropdown
+        = image_tag "edit-icon.png", class: "edit-icon"
+        .dropdown-content.dropdown-edit
+          %p= link_to "編集", edit_board_path(@board)
+          %p= link_to "削除", board_path(@board), data: { method: "delete", confirm: "本当に削除してもよろしいですか？" }
+    %P= @board.content
+
+.add-new-task
+  = link_to "+ Add new task", "#", class: "add-new-task-btn"
