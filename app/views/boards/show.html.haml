@@ -10,4 +10,4 @@
     %P= @board.content
 
 .add-new-task
-  = link_to "+ Add new task", "#", class: "add-new-task-btn"
+  = link_to "+ Add new task", new_board_task_path(@board), class: "add-new-task-btn"
