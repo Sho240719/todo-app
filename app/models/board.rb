@@ -20,4 +20,5 @@ class Board < ApplicationRecord
   validates :content, length: { minimum: 10 }
 
   belongs_to :user
+  has_many :tasks, dependent: :destroy
 end

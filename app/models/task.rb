@@ -18,4 +18,5 @@
 #
 class Task < ApplicationRecord
   belongs_to :user
+  belincs_to :board
 end
