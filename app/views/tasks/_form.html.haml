@@ -12,4 +12,8 @@
       = f.label :content, "Description"
     %div
       = f.text_area :content, class: "form-content"
+    .form-headline
+      = f.label :deadline, "Deadline"
+    %div
+      = f.date_field :deadline, class: "form-title"
     = f.submit "Submit", class: "btn-primary"
