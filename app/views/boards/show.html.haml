@@ -8,6 +8,17 @@
           %p= link_to "編集", edit_board_path(@board)
           %p= link_to "削除", board_path(@board), data: { method: "delete", confirm: "本当に削除してもよろしいですか？" }
     %P= @board.content
-
+- @tasks.each do |task|
+  - if task.board_id == @board.id
+    .task
+      .task-title
+        %h4= task.title
+      .task-content
+        %p= task.content
+      .task-items
+        .task-deadline
+          %p= "期日: #{task.deadline}"
+        .task-writer
+          %p= "作成者: #{task.user.email.split("@").first}"
 .add-new-task
   = link_to "+ Add new task", new_board_task_path(@board), class: "add-new-task-btn"
