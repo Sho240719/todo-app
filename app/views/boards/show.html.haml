@@ -11,6 +11,8 @@
 - @tasks.each do |task|
   - if task.board_id == @board.id
     .task
+      - if task.eyecatch.attached?
+        = image_tag task.eyecatch, class: "eyecatch-image"
       .task-title
         %h4= task.title
       .task-content

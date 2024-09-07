@@ -5,6 +5,10 @@
         %li= message
   = form_with(model: task, url: board_tasks_path(board), local: true) do |f|
     .form-headline
+      = f.label :eyecatch, "アイキャッチ画像"
+    %div
+      = f.file_field :eyecatch, class: "form-title"
+    .form-headline
       = f.label :title, "Title"
     %div
       = f.text_field :title, class: "form-title"
