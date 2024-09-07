@@ -1,0 +1,21 @@
+@import 'variables';
+
+.task {
+  margin: 30px 15px;
+  padding: 15px 15px;
+  border: 1px solid $line-base-color;
+  background: rgb(242, 243, 195);
+}
+
+.task-title {
+  margin-bottom: 10px;
+}
+
+.task-content {
+  margin-bottom: 20px;
+}
+
+.task-items {
+  display: flex;
+  justify-content: space-between;
+}

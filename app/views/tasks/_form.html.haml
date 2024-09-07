@@ -1,0 +1,23 @@
+.container
+  - if flash.present?
+    %ul.flash
+      - task.errors.full_messages.each do |message|
+        %li= message
+  = form_with(model: task, url: board_tasks_path(board), local: true) do |f|
+    .form-headline
+      = f.label :eyecatch, "アイキャッチ画像"
+    %div
+      = f.file_field :eyecatch, class: "form-title"
+    .form-headline
+      = f.label :title, "Title"
+    %div
+      = f.text_field :title, class: "form-title"
+    .form-headline
+      = f.label :content, "Description"
+    %div
+      = f.text_area :content, class: "form-content"
+    .form-headline
+      = f.label :deadline, "Deadline"
+    %div
+      = f.date_field :deadline, class: "form-title"
+    = f.submit "Submit", class: "btn-primary"
