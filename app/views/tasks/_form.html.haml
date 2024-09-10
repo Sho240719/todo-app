@@ -3,7 +3,7 @@
     %ul.flash
       - task.errors.full_messages.each do |message|
         %li= message
-  = form_with(model: task, url: board_tasks_path(board), local: true) do |f|
+  = form_with(model: [board, task], local: true) do |f|
     .form-headline
       = f.label :eyecatch, "アイキャッチ画像"
     %div
