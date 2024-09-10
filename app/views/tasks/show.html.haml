@@ -1,0 +1,10 @@
+%h2.headline= @task.title
+.container
+  -if @task.eyecatch.attached?
+    = image_tag @task.eyecatch,  class: "task-eyecatch-image"
+  .task-show-content
+    %p= @task.content
+  %h3 コメント一覧
+
+  .add-new-item
+    = link_to "+ Add new comment", "#", class: "add-new-item-btn"

@@ -12,5 +12,5 @@
             = image_tag "default-avatar.png", class: "header-avatar"
             %p 作成者:
             %p= board.user.email.split("@").first
-  .add-new-board
-    = link_to "+ Add new board", new_board_path, class: "add-new-board-btn"
+  .add-new-item
+    = link_to "+ Add new board", new_board_path, class: "add-new-item-btn"
