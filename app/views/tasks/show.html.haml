@@ -1,4 +1,11 @@
 %h2.headline= @task.title
+- if user_signed_in? && current_user.has_task?(@task)
+  .dropdown
+    = image_tag "edit-icon.png", class: "edit-icon"
+    .dropdown-content.dropdown-edit
+      %p= link_to "編集", edit_board_task_path(@board, @task)
+      %p= link_to "削除", "#"
+      -# %p= link_to "削除", board_path(@board), data: { method: "delete", confirm: "本当に削除してもよろしいですか？" }
 .container
   -if @task.eyecatch.attached?
     = image_tag @task.eyecatch,  class: "task-eyecatch-image"
