@@ -31,3 +31,21 @@
   margin-top: 250px;
   font-size: 15px;
 }
+
+// 新たな要素の追加
+.add-new-item {
+  margin-top: 30px;
+  padding: 30px 20px;
+  border: 1px solid $line-base-color;
+  text-decoration: none;
+  text-align: center;
+}
+
+// taskのみ適用
+.add-new-task {
+  margin: 0 15px;
+}
+
+.add-new-item-btn {
+  color: $text-base-color;
+}

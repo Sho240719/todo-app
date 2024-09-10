@@ -4,6 +4,6 @@ Rails.application.routes.draw do
   root to: 'boards#index'
 
   resources :boards do
-    resources :tasks, only: [:new, :create]
+    resources :tasks, only: [:show, :new, :create]
   end
 end
