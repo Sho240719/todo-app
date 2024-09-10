@@ -13,4 +13,4 @@
   %h3 コメント一覧
 
   .add-new-item
-    = link_to "+ Add new comment", "#", class: "add-new-item-btn"
+    = link_to "+ Add new comment", new_board_task_comment_path(@board, @task), class: "add-new-item-btn"
