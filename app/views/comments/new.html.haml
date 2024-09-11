@@ -1,0 +1,11 @@
+%h2.headline New Comment
+.container
+  - if flash.present?
+    %ul.flash
+      - @comment.errors.full_messages.each do |message|
+        %li= message
+  = form_with(model: [@board, @task, @comment], local: true) do |f|
+    .form-headline
+      %div
+        = f.text_area :content, class: "form-content"
+    = f.submit "Submit", class: "btn-primary"
