@@ -13,6 +13,7 @@
   %h3 コメント一覧
   - @comments.each do |comment|
     .comment-item
+      = image_tag "default-avatar.png", class: "header-avatar"
       %p.comment-content= comment.content
 
   .add-new-item
