@@ -21,6 +21,6 @@
         .task-deadline
           %p= "期日: #{task.deadline}"
         .task-writer
-          %p= "作成者: #{task.user.email.split("@").first}"
+          %p= "作成者: #{task.show_name}"
 .add-new-item.add-new-task
   = link_to "+ Add new task", new_board_task_path(@board), class: "add-new-item-btn"
