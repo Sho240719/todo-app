@@ -10,7 +10,11 @@
     %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
   %body
     %header.header
-      = link_to "Boards", boards_path, class: "header-pagetitle"
+      .header-logos
+        - if !current_page?(root_path)
+          = link_to :back do
+            = image_tag "back-icon.png", class: "header-back"
+        = link_to "Boards", root_path, class: "header-pagetitle"
       - if user_signed_in?
         .dropdown
           = image_tag "default-avatar.png", class: "header-avatar dropbtn"
