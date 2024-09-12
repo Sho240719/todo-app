@@ -1,7 +1,7 @@
 %h2.headline All Boards
 .container
   - @boards.each do |board|
-    = link_to board_path(id: board.id) do
+    = link_to board_path(board) do
       .board
         .board-title
           %h3= board.title

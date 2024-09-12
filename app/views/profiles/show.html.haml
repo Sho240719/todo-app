@@ -5,8 +5,17 @@
     .profilePage_user_basicInfo
       .profilePage_user_name
         .profilePage_user_displayName
-          名前
+          = current_user.display_name
         .profilePage_user_actionButton
           = link_to "Edit", edit_profile_path
       .profilePage_user_introduction
         あああああああああ
+  .profilePage_board
+    %p= "#{current_user.display_name}さんが作成したボード"
+  - current_user.boards.each do |board|
+    = link_to board_path(board) do
+      .board
+        .board-title
+          %h3= board.title
+        .board-content
+          %p= board.content
