@@ -21,4 +21,13 @@ class Board < ApplicationRecord
 
   belongs_to :user
   has_many :tasks, dependent: :destroy
+
+  def show_name
+    self.user.email.split("@").first
+  end
+
+  def display_updated_at
+    I18n.l(self.updated_at, format: :default)
+  end
+
 end

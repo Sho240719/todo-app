@@ -11,7 +11,7 @@
           .board-info
             = image_tag "default-avatar.png", class: "header-avatar"
             %div
-              %p= "作成者: #{board.user.email.split("@").first}"
-              %p= "更新日: #{I18n.l(board.updated_at, format: :default)}"
+              %p= "作成者: #{board.show_name}"
+              %p= "更新日: #{board.display_updated_at}"
   .add-new-item
     = link_to "+ Add new board", new_board_path, class: "add-new-item-btn"

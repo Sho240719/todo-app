@@ -1,15 +1,13 @@
 class CommentsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
+  before_action :set_board, only: [:new, :create]
+  before_action :set_task, only: [:new, :create]
 
   def new
-    @board = Board.find(params[:board_id])
-    @task = @board.tasks.find(params[:task_id])
     @comment = @task.comments.build(user: current_user)
   end
 
   def create
-    @board = Board.find(params[:board_id])
-    @task = @board.tasks.find(params[:task_id])
     @comment = @task.comments.build(comment_params)
     @comment.user = current_user
     if @comment.save
@@ -24,4 +22,13 @@ class CommentsController < ApplicationController
   def comment_params
     params.require(:comment).permit(:content)
   end
+
+  def set_board
+    @board = Board.find(params[:board_id])
+  end
+
+  def set_task
+    @task = @board.tasks.find(params[:task_id])
+  end
+
 end
