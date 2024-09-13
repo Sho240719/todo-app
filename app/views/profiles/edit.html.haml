@@ -4,7 +4,7 @@
     %ul.flash
       - @profile.errors.full_messages.each do |message|
         %li= message
-  = form_with(model: @profile, url: profile_path, local: true) do |f|
+  = form_with(model: @profile, url: profile_path, method: 'put', local: true) do |f|
     .form-headline
       = f.label :eyecatch, "アイキャッチ画像"
     %div
@@ -28,7 +28,7 @@
       = f.date_field :birthday, class: "form-title"
 
     .form-headline
-      = f.label :subscribed, "通知設定"
+      = f.label :subscribed, "通知を受け取る"
       = f.check_box :subscribed
 
 
