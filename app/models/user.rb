@@ -39,6 +39,14 @@ class User < ApplicationRecord
     profile&.nickname || email.split("@").first
   end
 
+  def birthday
+    profile&.birthday
+  end
+
+  def gender
+    profile&.gender
+  end
+
   def prepare_profile
     profile || build_profile
   end
