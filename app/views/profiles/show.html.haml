@@ -9,7 +9,7 @@
         .profilePage_user_actionButton
           = link_to "Edit", edit_profile_path
       .profilePage_user_introduction
-        あああああああああ
+        = current_user&.profile&.introduction
   .profilePage_board
     %p= "#{current_user.display_name}さんが作成したボード"
   - current_user.boards.each do |board|
