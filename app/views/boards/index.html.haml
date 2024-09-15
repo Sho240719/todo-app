@@ -9,7 +9,7 @@
           %p= board.content
         .board-items
           .board-info
-            = image_tag "default-avatar.png", class: "header-avatar"
+            = image_tag board.user.avatar_image, class: "header-avatar"
             %div
               %p= "作成者: #{board.show_name}"
               %p= "更新日: #{board.display_updated_at}"

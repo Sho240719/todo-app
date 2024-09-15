@@ -6,10 +6,9 @@
         %li= message
   = form_with(model: @profile, url: profile_path, method: 'put', local: true) do |f|
     .form-headline
-      = f.label :eyecatch, "アイキャッチ画像"
+      = f.label :avatar, "プロフィール画像"
     %div
-      = f.file_field :eyecatch, class: "form-title"
-
+      = f.file_field :avatar, class: "form-title"
     .form-headline
       = f.label :nickname, "ハンドルネーム"
     %div
