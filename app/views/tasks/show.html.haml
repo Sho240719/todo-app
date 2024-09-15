@@ -16,13 +16,13 @@
     .comment-wrapper
       .comment-content
         = comment.content
-      .comment-item
-        .comment-user-info
-          = image_tag "default-avatar.png", class: "header-avatar"
-          %p= comment.user.display_name
-        .comment-like
-          = image_tag "heart.svg"
-          %p= 1
+      .comment-like
+        = image_tag "heart.svg"
+        27
+      .comment-user-info
+        = image_tag comment.user.avatar_image, class: "header-avatar"
+        %p= comment.user.display_name
+
 
   .add-new-item
     = link_to "+ Add new comment", new_board_task_comment_path(@board, @task), class: "add-new-item-btn"
