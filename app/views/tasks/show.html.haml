@@ -16,9 +16,11 @@
     .comment-wrapper
       .comment-content
         = comment.content
-      .comment-like
-        = image_tag "heart.svg"
-        27
+      - if user_signed_in?
+        .comment-like
+          = link_to board_task_comment_like_path(@board, @task, comment), data: { method: 'post' } do
+            = image_tag "heart.svg"
+          27
       .comment-user-info
         = image_tag comment.user.avatar_image, class: "header-avatar"
         %p= comment.user.display_name
