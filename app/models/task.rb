@@ -28,6 +28,6 @@ class Task < ApplicationRecord
   has_many :comments, dependent: :destroy
 
   def show_name
-    self.user.email.split("@").first
+    self.user.email.split('@').first
   end
 end

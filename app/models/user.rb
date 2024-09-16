@@ -25,6 +25,8 @@ class User < ApplicationRecord
   has_many :boards, dependent: :destroy
   has_many :tasks, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :likes, dependent: :destroy
+  has_many :favorite_comments, through: :likes, source: :comment
   has_one :profile, dependent: :destroy
 
   delegate :birthday, :age, :gender, to: :profile, allow_nil: true
@@ -37,8 +39,12 @@ class User < ApplicationRecord
     tasks.exists?(id: task.id)
   end
 
+  def has_liked?(comment)
+    likes.exists?(comment_id: comment.id)
+  end
+
   def display_name
-    profile&.nickname || email.split("@").first
+    profile&.nickname || email.split('@').first
   end
 
   def prepare_profile

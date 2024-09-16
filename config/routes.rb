@@ -5,9 +5,12 @@ Rails.application.routes.draw do
 
   resources :boards do
     resources :tasks, except: [:index] do
-      resources :comments, only: [:new, :create]
+      resources :comments, only: [:new, :create] do
+        resource :like, only: [:create, :destroy]
+      end
     end
   end
 
   resource :profile, only: [:show, :edit, :update]
+  resources :favorites, only: [:index]
 end

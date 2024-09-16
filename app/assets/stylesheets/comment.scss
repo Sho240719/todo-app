@@ -1,14 +1,33 @@
 @import 'variables';
 
-.comment-item {
+.comment-wrapper {
   background-color: #ffeb3b57;
   margin-top: 20px;
-  padding: 20px;
+  padding: 15px;
   border: 1px solid $primary-color;
-  display: flex;
-  align-items: center;
-}
 
-.comment-content {
-  margin-left: 10px;
+  .comment-content {
+    margin-bottom: 10px;
+  }
+
+  .comment-like {
+    display: flex;
+    align-items: center;
+    margin-bottom: 3px;
+
+    img {
+      width: 20px;
+      height: 20px;
+      margin-right: 5px;
+    }
+  }
+
+  .comment-user-info {
+    display: flex;
+    align-items: center;
+
+    p {
+      margin-left: 10px;
+    }
+  }
 }

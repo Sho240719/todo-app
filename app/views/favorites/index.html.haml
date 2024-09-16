@@ -1,0 +1,13 @@
+.container
+  %h3= "#{current_user.display_name}さんがお気に入りしたコメント"
+
+  - if @comments.present?
+    - @comments.each do |comment|
+      .comment-wrapper
+        .comment-content
+          = comment.content
+        .comment-user-info
+          = image_tag comment.user.avatar_image, class: "header-avatar"
+          %p= comment.user.display_name
+  - else
+    %p{style: "margin-top: 20px;"} お気に入りしたコメントはありません

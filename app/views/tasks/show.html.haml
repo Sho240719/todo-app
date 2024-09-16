@@ -10,11 +10,27 @@
     = image_tag @task.eyecatch,  class: "task-eyecatch-image"
   .task-show-content
     %p= @task.content
+
   %h3 コメント一覧
   - @comments.each do |comment|
-    .comment-item
-      = image_tag "default-avatar.png", class: "header-avatar"
-      %p.comment-content= comment.content
+    .comment-wrapper
+      .comment-content
+        = comment.content
+      - if user_signed_in?
+        - if current_user.has_liked?(comment)
+          .comment-like
+            = link_to board_task_comment_like_path(@board, @task, comment), data: { method: 'delete' } do
+              = image_tag "heart-active.svg"
+            %span= comment.like_count
+        - else
+          .comment-like
+            = link_to board_task_comment_like_path(@board, @task, comment), data: { method: 'post' } do
+              = image_tag "heart.svg"
+            %span= comment.like_count
+      .comment-user-info
+        = image_tag comment.user.avatar_image, class: "header-avatar"
+        %p= comment.user.display_name
+
 
   .add-new-item
     = link_to "+ Add new comment", new_board_task_comment_path(@board, @task), class: "add-new-item-btn"
