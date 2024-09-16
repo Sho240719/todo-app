@@ -19,7 +19,8 @@
       - if user_signed_in?
         - if current_user.has_liked?(comment)
           .comment-like
-            = image_tag "heart-active.svg"
+            = link_to board_task_comment_like_path(@board, @task, comment), data: { method: 'delete' } do
+              = image_tag "heart-active.svg"
         - else
           .comment-like
             = link_to board_task_comment_like_path(@board, @task, comment), data: { method: 'post' } do

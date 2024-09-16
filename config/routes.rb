@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :boards do
     resources :tasks, except: [:index] do
       resources :comments, only: [:new, :create] do
-        resource :like, only: [:create]
+        resource :like, only: [:create, :destroy]
       end
     end
   end
