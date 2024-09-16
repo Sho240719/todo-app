@@ -24,6 +24,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'annotate'
 gem 'devise'
 gem 'hamlit'
+gem 'aws-sdk-s3', require: false
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
