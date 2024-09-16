@@ -21,11 +21,12 @@
           .comment-like
             = link_to board_task_comment_like_path(@board, @task, comment), data: { method: 'delete' } do
               = image_tag "heart-active.svg"
+            %span= comment.like_count
         - else
           .comment-like
             = link_to board_task_comment_like_path(@board, @task, comment), data: { method: 'post' } do
               = image_tag "heart.svg"
-            27
+            %span= comment.like_count
       .comment-user-info
         = image_tag comment.user.avatar_image, class: "header-avatar"
         %p= comment.user.display_name
