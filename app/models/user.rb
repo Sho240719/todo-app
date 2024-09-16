@@ -26,6 +26,7 @@ class User < ApplicationRecord
   has_many :tasks, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
+  has_many :favorite_comments, through: :likes, source: :comment
   has_one :profile, dependent: :destroy
 
   delegate :birthday, :age, :gender, to: :profile, allow_nil: true
