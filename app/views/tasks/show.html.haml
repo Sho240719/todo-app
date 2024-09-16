@@ -17,10 +17,14 @@
       .comment-content
         = comment.content
       - if user_signed_in?
-        .comment-like
-          = link_to board_task_comment_like_path(@board, @task, comment), data: { method: 'post' } do
-            = image_tag "heart.svg"
-          27
+        - if current_user.has_liked?(comment)
+          .comment-like
+            = image_tag "heart-active.svg"
+        - else
+          .comment-like
+            = link_to board_task_comment_like_path(@board, @task, comment), data: { method: 'post' } do
+              = image_tag "heart.svg"
+            27
       .comment-user-info
         = image_tag comment.user.avatar_image, class: "header-avatar"
         %p= comment.user.display_name

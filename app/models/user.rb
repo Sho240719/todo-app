@@ -38,6 +38,10 @@ class User < ApplicationRecord
     tasks.exists?(id: task.id)
   end
 
+  def has_liked?(comment)
+    likes.exists?(comment_id: comment.id)
+  end
+
   def display_name
     profile&.nickname || email.split("@").first
   end
