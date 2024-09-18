@@ -25,6 +25,8 @@ gem 'annotate'
 gem 'devise'
 gem 'hamlit'
 gem 'aws-sdk-s3', require: false
+# デプロイ後に追加
+gem 'ffi', '~> 1.15.5'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
