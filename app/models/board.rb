@@ -3,7 +3,6 @@
 # Table name: boards
 #
 #  id         :bigint           not null, primary key
-#  content    :text
 #  title      :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
@@ -21,6 +20,7 @@ class Board < ApplicationRecord
 
   belongs_to :user
   has_many :tasks, dependent: :destroy
+  has_rich_text :content
 
   def show_name
     self.user.email.split('@').first
