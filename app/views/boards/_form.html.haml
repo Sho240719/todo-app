@@ -11,5 +11,5 @@
     .form-headline
       = f.label :content, "Description"
     %div
-      = f.text_area :content, class: "form-content"
+      = f.rich_text_area :content, class: "form-content"
     = f.submit "Submit", class: "btn-primary"

@@ -6,7 +6,7 @@
         .board-title
           %h3= board.title
         .board-content
-          %p= board.content
+          %p= raw board.content
         .board-items
           .board-info
             = image_tag board.user.avatar_image, class: "header-avatar"
