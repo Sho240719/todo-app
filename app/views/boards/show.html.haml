@@ -1,4 +1,6 @@
 %div.show-board
+  = link_to account_path(@board.user) do
+    = image_tag @board.user.avatar_image, class: "header-avatar"
   %h2.headline= @board.title
   .container
     - if user_signed_in? && current_user.has_written?(@board)
