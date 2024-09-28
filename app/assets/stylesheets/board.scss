@@ -1,5 +1,24 @@
 @import 'variables';
 
+.tag {
+  display: flex;
+  margin: 30px;
+}
+
+.all, .timeline {
+  border: 1px solid;
+  padding: 15px;
+}
+
+.all {
+  background-color: $primary-color;
+  color: #fff;
+}
+
+.timeline {
+  color: #738d99;;
+}
+
 .board {
   background-color: #b1acac24;
   padding: 15px 20px;
