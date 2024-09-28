@@ -7,10 +7,13 @@
         .profilePage_user_displayName
           #{user.display_name}(#{user.age || '?歳'}・#{I18n.t("enum.genders.#{user.gender || 'unknown'}")})
         .profilePage_user_actionButton
-          -if user == current_user
+          - if user == current_user
             = link_to "Edit", edit_profile_path
           - else
-            = link_to "follow", '#'
+            - if current_user&.has_followed?(user)
+              %p フォロー済み
+            - else
+              = link_to "follow", account_follows_path(user), data: { method: 'post' }
       .profilePage_user_introduction
         = user&.profile&.introduction
   .profilePage_board
