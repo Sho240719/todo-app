@@ -1,6 +1,8 @@
-.tag
-  %h2.all All Boards
-  %h2.timeline タイムライン
+.tabs
+  .all
+    = link_to 'All Boards', root_path
+  .timeline
+    = link_to 'タイムライン', timeline_path
 .container
   - @boards.each do |board|
     = link_to board_path(board) do

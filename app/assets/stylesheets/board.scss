@@ -1,6 +1,6 @@
 @import 'variables';
 
-.tag {
+.tabs {
   display: flex;
   margin: 30px;
 }
@@ -8,6 +8,22 @@
 .all, .timeline {
   border: 1px solid;
   padding: 15px;
+  width: 100%;
+  text-align: center;
+  font-weight: bold;
+}
+
+.all a,
+.timeline a {
+  display: block;
+}
+
+.all a {
+  color: #fff;
+}
+
+.timeline a {
+  color: $text-base-color;
 }
 
 .all {
@@ -16,6 +32,7 @@
 }
 
 .timeline {
+  background-color: #738d9973;
   color: #738d99;;
 }
 
