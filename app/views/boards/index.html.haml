@@ -1,17 +1,3 @@
-%h2.headline All Boards
-.container
-  - @boards.each do |board|
-    = link_to board_path(board) do
-      .board
-        .board-title
-          %h3= board.title
-        .board-content
-          %p= raw board.content
-        .board-items
-          .board-info
-            = image_tag board.user.avatar_image, class: "header-avatar"
-            %div
-              %p= "作成者: #{board.show_name}"
-              %p= "更新日: #{board.display_updated_at}"
-  .add-new-item
-    = link_to "+ Add new board", new_board_path, class: "add-new-item-btn"
+= render 'commons/board', boards: @boards
+.add-new-item
+  = link_to "+ Add new board", new_board_path, class: "add-new-item-btn"
