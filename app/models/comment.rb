@@ -18,8 +18,4 @@ class Comment < ApplicationRecord
   belongs_to :user
   belongs_to :task
   has_many :likes, dependent: :destroy
-
-  def like_count
-    likes.count
-  end
 end

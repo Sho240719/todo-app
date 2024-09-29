@@ -26,8 +26,4 @@ class Task < ApplicationRecord
   belongs_to :user
   belongs_to :board
   has_many :comments, dependent: :destroy
-
-  def show_name
-    self.user.email.split('@').first
-  end
 end
