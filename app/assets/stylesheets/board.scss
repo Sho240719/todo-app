@@ -5,35 +5,29 @@
   margin: 30px;
 }
 
-.all, .timeline {
+.tabs-item {
   border: 1px solid;
   padding: 15px;
   width: 100%;
   text-align: center;
   font-weight: bold;
-}
-
-.all a,
-.timeline a {
-  display: block;
-}
-
-.all a {
-  color: #fff;
-}
-
-.timeline a {
-  color: $text-base-color;
-}
-
-.all {
-  background-color: $primary-color;
-  color: #fff;
-}
-
-.timeline {
   background-color: #738d9973;
-  color: #738d99;;
+  color: #738d9973;
+  cursor: pointer;
+}
+
+.tabs-item a {
+  display: block;
+  color: #3e3c3c8f;;
+}
+
+.active {
+  background-color: $primary-color;
+  color: $primary-color;
+}
+
+.active a {
+  color: #fff;
 }
 
 .board {

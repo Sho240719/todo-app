@@ -1,7 +1,7 @@
 .tabs
-  .all
+  .tabs-item{class: "#{'active' if current_page?(root_path)}"}
     = link_to 'All Boards', root_path
-  .timeline
+  .tabs-item{class: "#{'active' if current_page?(timeline_path)}"}
     = link_to 'タイムライン', timeline_path
 .container
   - boards.each do |board|
