@@ -23,10 +23,12 @@ import $ from 'jquery'
 import axios from 'axios'
 
 document.addEventListener('turbolinks:load', () => {
-  $('.headline').on('click', () => {
-    axios.get('/')
-      .then((response) => {
-        console.log(response)
-      })
-  })
+  const dataset = $('#comment-show').data()
+  const boardId = dataset.boardId
+  const taskId = dataset.taskId
+  const commentId = dataset.commentId
+  axios.get(`/boards/${boardId}/tasks/${taskId}/comments/${commentId}/like`)
+    .then((response) => {
+      console.log(response)
+    })
 })
