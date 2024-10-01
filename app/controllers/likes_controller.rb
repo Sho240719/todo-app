@@ -1,6 +1,14 @@
 class LikesController < ApplicationController
   before_action :authenticate_user!
 
+  def show
+    board = Board.find(params[:board_id])
+    task = board.tasks.find(params[:task_id])
+    comment = task.comments.find(params[:comment_id])
+    like_status = current_user.has_liked?(comment)
+    render json: { hasLiked: like_status }
+  end
+
   def create
     board = Board.find(params[:board_id])
     task = board.tasks.find(params[:task_id])
