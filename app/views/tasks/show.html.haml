@@ -11,19 +11,21 @@
   .task-show-content
     %p= @task.content
 
-  %h3 コメント一覧
-  - @comments.each do |comment|
-    .comment-wrapper#comment-show{data: {board_id: @board.id, task_id: @task.id, comment_id: comment.id}}
+  %h3#comment-show{data: {board_id: @board.id, task_id: @task.id, comment_id: @comment.id}} コンセプト
+  .consept
+    = @comment.content
+    - if user_signed_in?
+      .comment-like.hidden.active-heart
+        = image_tag "heart-active.svg"
+      .comment-like.hidden.inactive-heart
+        = image_tag "heart.svg"
+  
+  .comment-wrapper
+    %h3 コメント一覧
+    - @comments.each do |comment|
+      - next if comment.id == 1
       .comment-content
         = comment.content
-      - if user_signed_in?
-        .comment-like.hidden.active-heart
-          = image_tag "heart-active.svg"
-        .comment-like.hidden.inactive-heart
-          = image_tag "heart.svg"
-      .comment-user-info
-        = image_tag comment.user.avatar_image, class: "header-avatar"
-        %p= comment.user.display_name
 
   .add-new-item
     = link_to "+ Add new comment", new_board_task_comment_path(@board, @task), class: "add-new-item-btn"
