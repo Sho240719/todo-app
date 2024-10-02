@@ -48,7 +48,10 @@ document.addEventListener('turbolinks:load', () => {
   $('.inactive-heart').on('click', () => {
     axios.post(`/boards/${boardId}/tasks/${taskId}/comments/${commentId}/like`)
       .then((response) => {
-        console.log(response)
+        if (response.data.status === 'ok') {
+          $('.active-heart').removeClass('hidden')
+          $('.inactive-heart').addClass('hidden')
+        }
       })
       .catch((e) => {
         window.alert('Error')
@@ -59,7 +62,10 @@ document.addEventListener('turbolinks:load', () => {
   $('.active-heart').on('click', () => {
     axios.delete(`/boards/${boardId}/tasks/${taskId}/comments/${commentId}/like`)
       .then((response) => {
-        console.log(response)
+        if (response.data.status === 'ok') {
+          $('.inactive-heart').removeClass('hidden')
+          $('.active-heart').addClass('hidden')
+        }
       })
       .catch((e) => {
         window.alert('Error')
