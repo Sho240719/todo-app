@@ -5,7 +5,6 @@ class TasksController < ApplicationController
 
   def show
     @comment = Comment.find(1)
-    @comments = @task.comments
   end
 
   def new
