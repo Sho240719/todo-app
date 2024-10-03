@@ -18,6 +18,17 @@ document.addEventListener('turbolinks:load', () => {
   const taskId = dataset.taskId
   const commentId = dataset.commentId
 
+  axios.get(`/boards/${boardId}/tasks/${taskId}/comments`)
+    .then((response) => {
+      const comments = response.data
+      $('.comments-container').empty()
+      comments.forEach((comment) => {
+        $('.comments-container').append(
+          `<div class="task-comment"><p >${comment.content}</p></div>`
+        )
+      })
+    })
+
   axios.get(`/boards/${boardId}/tasks/${taskId}/comments/${commentId}/like`)
     .then((response) => {
       const hasLiked = response.data.hasLiked
