@@ -15,12 +15,9 @@ class CommentsController < ApplicationController
   def create
     @comment = @task.comments.build(comment_params)
     @comment.user = current_user
-    if @comment.save
-      redirect_to board_task_path(@board, @task), notice: 'commentを追加しました'
-    else
-      flash.now[:error] = 'commentを追加できませんでした'
-      render :new
-    end
+    @comment.save!
+
+    render json: @comment
   end
 
   private

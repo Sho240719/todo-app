@@ -34,6 +34,25 @@ document.addEventListener('turbolinks:load', () => {
     $('.comment-text-area').removeClass('hidden')
   })
 
+
+  $('.add-comment-btn').on('click', () => {
+    const content = $('#comment_content').val()
+    if (!content) {
+      window.alert('コメントを入力してください')
+    } else {
+      axios.post(`/boards/${boardId}/tasks/${taskId}/comments`, {
+        comment: { content: content }
+      })
+        .then((res) => {
+          const comment = res.data
+          $('.comments-container').append(
+            `<div class="task-comment"><p >${comment.content}</p></div>`
+          )
+          $('#comment_content').val('')
+        })
+    }
+  })
+
   axios.get(`/boards/${boardId}/tasks/${taskId}/comments/${commentId}/like`)
     .then((response) => {
       const hasLiked = response.data.hasLiked
