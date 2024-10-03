@@ -25,7 +25,11 @@
     %h3 コメント一覧
     .comments-container
 
-  .add-new-item
-    = link_to "+ Add new comment", new_board_task_comment_path(@board, @task), class: "add-new-item-btn"
+  .add-new-item.show-comment-form
+    コメントを追加
+  .comment-text-area.hidden
+    = text_area_tag :comment_content, '', class: 'sm'
+    .add-new-item
+      コメントを追加
 
 = javascript_pack_tag 'comment'

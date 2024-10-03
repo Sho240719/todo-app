@@ -29,6 +29,11 @@ document.addEventListener('turbolinks:load', () => {
       })
     })
 
+  $('.show-comment-form').on('click', () => {
+    $('.show-comment-form').addClass('hidden')
+    $('.comment-text-area').removeClass('hidden')
+  })
+
   axios.get(`/boards/${boardId}/tasks/${taskId}/comments/${commentId}/like`)
     .then((response) => {
       const hasLiked = response.data.hasLiked
