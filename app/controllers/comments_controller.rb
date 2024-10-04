@@ -1,7 +1,12 @@
 class CommentsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
-  before_action :set_board, only: [:new, :create]
-  before_action :set_task, only: [:new, :create]
+  before_action :set_board, only: [:index, :new, :create]
+  before_action :set_task, only: [:index, :new, :create]
+
+  def index
+    comments = @task.comments
+    render json: comments
+  end
 
   def new
     @comment = @task.comments.build(user: current_user)
@@ -10,12 +15,9 @@ class CommentsController < ApplicationController
   def create
     @comment = @task.comments.build(comment_params)
     @comment.user = current_user
-    if @comment.save
-      redirect_to board_task_path(@board, @task), notice: 'commentを追加しました'
-    else
-      flash.now[:error] = 'commentを追加できませんでした'
-      render :new
-    end
+    @comment.save!
+
+    render json: @comment
   end
 
   private

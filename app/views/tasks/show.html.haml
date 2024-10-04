@@ -11,26 +11,25 @@
   .task-show-content
     %p= @task.content
 
-  %h3 コメント一覧
-  - @comments.each do |comment|
-    .comment-wrapper
-      .comment-content
-        = comment.content
+  %div#comment-show{data: {board_id: @board.id, task_id: @task.id, comment_id: @comment.id}}
+    %h3 コンセプト
+    .consept
+      = @comment.content
       - if user_signed_in?
-        - if current_user.has_liked?(comment)
-          .comment-like
-            = link_to board_task_comment_like_path(@board, @task, comment), data: { method: 'delete' } do
-              = image_tag "heart-active.svg"
-            %span= comment.like_count
-        - else
-          .comment-like
-            = link_to board_task_comment_like_path(@board, @task, comment), data: { method: 'post' } do
-              = image_tag "heart.svg"
-            %span= comment.like_count
-      .comment-user-info
-        = image_tag comment.user.avatar_image, class: "header-avatar"
-        %p= comment.user.display_name
+        .comment-like.hidden.active-heart
+          = image_tag "heart-active.svg"
+        .comment-like.hidden.inactive-heart
+          = image_tag "heart.svg"
 
+  .comment-wrapper
+    %h3 コメント一覧
+    .comments-container
 
-  .add-new-item
-    = link_to "+ Add new comment", new_board_task_comment_path(@board, @task), class: "add-new-item-btn"
+  .add-new-item.show-comment-form
+    コメントを追加
+  .comment-text-area.hidden
+    = text_area_tag :comment_content, '', class: 'sm'
+    .add-new-item.add-comment-btn
+      コメントを追加
+
+= javascript_pack_tag 'comment'

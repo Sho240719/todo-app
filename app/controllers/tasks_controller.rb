@@ -4,7 +4,7 @@ class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update]
 
   def show
-    @comments = @task.comments
+    @comment = Comment.find(1)
   end
 
   def new
@@ -35,9 +35,9 @@ class TasksController < ApplicationController
   end
 
   def destroy
-    task = board.tasks.find(params[:id])
+    task = @board.tasks.find(params[:id])
     task.destroy!
-    redirect_to board_path(board), notice: '削除しました'
+    redirect_to board_path(@board), notice: '削除しました'
   end
 
   private
