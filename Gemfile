@@ -27,6 +27,7 @@ gem 'active_model_serializers'
 gem 'devise'
 gem 'hamlit'
 gem 'aws-sdk-s3', require: false
+gem 'sidekiq'
 # デプロイ後に追加
 gem 'ffi', '~> 1.15.5'
 
