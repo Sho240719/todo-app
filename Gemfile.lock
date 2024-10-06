@@ -131,6 +131,8 @@ GEM
       html2haml
     erubi (1.13.0)
     erubis (2.7.0)
+    faker (3.4.2)
+      i18n (>= 1.8.11, < 2)
     ffi (1.15.5)
     globalid (1.1.0)
       activesupport (>= 5.0)
@@ -385,6 +387,7 @@ DEPENDENCIES
   devise
   dotenv-rails
   erb2haml
+  faker
   ffi (~> 1.15.5)
   hamlit
   jbuilder (~> 2.7)

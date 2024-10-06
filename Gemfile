@@ -25,6 +25,7 @@ gem 'annotate'
 gem 'active_decorator'
 gem 'active_model_serializers'
 gem 'devise'
+gem 'faker'
 gem 'hamlit'
 gem 'aws-sdk-s3', require: false
 gem 'sidekiq'
