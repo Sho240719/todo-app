@@ -10,11 +10,7 @@ Rails.application.routes.draw do
   resource :timeline, only: [:show]
 
   resources :boards do
-    resources :tasks, except: [:index] do
-      resources :comments, only: [:index, :new, :create] do
-        resource :like, only: [:show, :create, :destroy]
-      end
-    end
+    resources :tasks, except: [:index]
   end
 
   resources :accounts, only: [:show] do
@@ -24,4 +20,14 @@ Rails.application.routes.draw do
 
   resource :profile, only: [:show, :edit, :update]
   resources :favorites, only: [:index]
+
+  namespace :api, defaults: {formt: :json} do
+    scope '/boards/:board_id' do
+      scope 'tasks/:task_id' do
+        resources :comments, only: [:index, :create] do
+          resource :like, only: [:show, :create, :destroy]
+        end
+      end
+    end
+  end
 end

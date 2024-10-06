@@ -4,7 +4,7 @@ import axios from 'modules/axios'
 const listenInactiveHeartEvent = (boardId, taskId, commentId) => {
   $(".inactive-heart").on("click", () => {
     axios
-      .post(`/boards/${boardId}/tasks/${taskId}/comments/${commentId}/like`)
+      .post(`/api/boards/${boardId}/tasks/${taskId}/comments/${commentId}/like`)
       .then((response) => {
         if (response.data.status === "ok") {
           $(".active-heart").removeClass("hidden");
@@ -21,7 +21,7 @@ const listenInactiveHeartEvent = (boardId, taskId, commentId) => {
 const listenActiveHeartEvent = (boardId, taskId, commentId) => {
   $(".active-heart").on("click", () => {
     axios
-      .delete(`/boards/${boardId}/tasks/${taskId}/comments/${commentId}/like`)
+      .delete(`/api/boards/${boardId}/tasks/${taskId}/comments/${commentId}/like`)
       .then((response) => {
         if (response.data.status === "ok") {
           $(".inactive-heart").removeClass("hidden");
