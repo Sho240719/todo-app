@@ -34,7 +34,7 @@ document.addEventListener('turbolinks:load', () => {
   const taskId = dataset.taskId
   const commentId = dataset.commentId
 
-  axios.get(`/boards/${boardId}/tasks/${taskId}/comments`)
+  axios.get(`/api/boards/${boardId}/tasks/${taskId}/comments`)
     .then((response) => {
       const comments = response.data
       $('.comments-container').empty()
@@ -50,7 +50,7 @@ document.addEventListener('turbolinks:load', () => {
     if (!content) {
       window.alert('コメントを入力してください')
     } else {
-      axios.post(`/boards/${boardId}/tasks/${taskId}/comments`, {
+      axios.post(`/api/boards/${boardId}/tasks/${taskId}/comments`, {
         comment: { content: content }
       })
         .then((res) => {
@@ -61,7 +61,7 @@ document.addEventListener('turbolinks:load', () => {
     }
   })
 
-  axios.get(`/boards/${boardId}/tasks/${taskId}/comments/${commentId}/like`)
+  axios.get(`/api/boards/${boardId}/tasks/${taskId}/comments/${commentId}/like`)
     .then((response) => {
       const hasLiked = response.data.hasLiked
       handleHeartDisplay(hasLiked)

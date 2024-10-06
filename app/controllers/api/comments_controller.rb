@@ -1,4 +1,4 @@
-class CommentsController < ApplicationController
+class Api::CommentsController < Api::ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
   before_action :set_board, only: [:index, :new, :create]
   before_action :set_task, only: [:index, :new, :create]
@@ -6,10 +6,6 @@ class CommentsController < ApplicationController
   def index
     comments = @task.comments
     render json: comments
-  end
-
-  def new
-    @comment = @task.comments.build(user: current_user)
   end
 
   def create
