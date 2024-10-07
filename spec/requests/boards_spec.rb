@@ -25,5 +25,13 @@ RSpec.describe 'Boards', type: :request do
         expect(Board.last.content.body.to_plain_text).to eq(board_params[:content])
       end
     end
+
+    context 'ログインしていない場合' do
+      it 'ログイン画面に遷移する' do
+        board_params = attributes_for(:board)
+        post boards_path({board: board_params})
+        expect(response).to redirect_to(new_user_session_path)
+      end
+    end
   end
 end
