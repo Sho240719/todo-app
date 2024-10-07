@@ -25,6 +25,7 @@ gem 'annotate'
 gem 'active_decorator'
 gem 'active_model_serializers'
 gem 'devise'
+gem 'faker'
 gem 'hamlit'
 gem 'aws-sdk-s3', require: false
 gem 'sidekiq'
@@ -44,6 +45,8 @@ group :development, :test do
   gem 'pry-byebug'
   gem 'rubocop-rails'
   gem 'dotenv-rails'
+  gem 'rspec-rails'
+  gem 'factory_bot_rails'
 end
 
 group :development do

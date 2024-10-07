@@ -15,8 +15,8 @@
 class Board < ApplicationRecord
   validates :title, presence: true
   validates :title, uniqueness: true
+  validates :title, length: { minimum: 2, maximum: 100  }
   validates :content, presence: true
-  validates :content, length: { minimum: 10 }
 
   belongs_to :user
   has_many :tasks, dependent: :destroy
