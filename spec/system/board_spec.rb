@@ -11,4 +11,14 @@ RSpec.describe 'Board', type: :system do
       expect(page).to have_css('.board', text: board.title)
     end
   end
+
+  it '記事詳細を表示できる' do
+    visit root_path
+
+    board = boards.first
+    click_on board.title
+
+    expect(page).to have_css('.headline', text: board.title)
+    expect(page).to have_css('.container', text: board.content.to_plain_text)
+  end
 end
