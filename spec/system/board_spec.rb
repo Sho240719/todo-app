@@ -8,7 +8,7 @@ RSpec.describe 'Board', type: :system do
     visit root_path
 
     boards.each do |board|
-      expect(page).to have_content(board.title)
+      expect(page).to have_css('.board', text: board.title)
     end
   end
 end
