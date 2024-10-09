@@ -23,7 +23,7 @@ const handleCommentForm = () => {
 
 const apendNewComment = (comment) => {
   $('.comments-container').append(
-    `<div class="task-comment"><p >${comment.content}</p></div>`
+    `<div class="task-comment"><p >${escape(comment.content)}</p></div>`
   )
 }
 
